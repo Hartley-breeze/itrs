@@ -1,35 +1,99 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+.el-table thead {
+  color: #333 !important;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+/* 表格头部 */
+.el-table th.el-table__cell {
+  background-color: #fff7f7 !important;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+.el-table {
+  --el-table-border-color: transparent !important;
+  --el-table-row-hover-bg-color: transparent !important;
+  --el-table-border: transparent !important;
+
+  &.el-table--border {
+    border: none;
+
+    .el-table__cell {
+      border: none;
+    }
+
+    &:after {
+      display: none;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .el-table__body tr:hover>td {
+    background-color: transparent !important;
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
+/* 全局移除所有下拉组件的边框 */
+.el-dropdown .el-dropdown-selfdefine,
+.el-dropdown .el-dropdown-link,
+.el-dropdown .el-tooltip__trigger {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.el-dropdown:focus .el-dropdown-selfdefine,
+.el-dropdown:focus .el-dropdown-link,
+.el-dropdown:focus .el-tooltip__trigger {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.el-overlay {
+  backdrop-filter: blur(2px);
+  /* 毛玻璃核心 */
+  -webkit-backdrop-filter: blur(2px);
+  /* 兼容 Safari */
+}
+
+.el-dialog {
+  border-radius: 20px !important;
+
+  .el-dialog__title {
+    font-weight: 600;
+    font-size: 22px;
   }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+  .el-dialog__header.show-close {
+    padding: 24px;
+  }
+
+  .el-dialog__headerbtn {
+    top: 30px;
+    right: 30px;
+    padding: 4px;
+    font-size: 24px;
+  }
+}
+
+
+/* 穿透 el-dropdown 菜单样式 */
+.el-dropdown-menu {
+  background-color: rgb(255,255,255) !important;
+  border: none;
+  border-radius: 8px;
+}
+
+.el-dropdown-menu__item {
+  color: #333 !important;
+  font-size: 14px;
+  padding: 8px 20px;
+
+  &:hover {
+    background-color: rgb(244,244,244) !important;
+    color: #333 !important;
   }
 }
